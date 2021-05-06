@@ -2,13 +2,16 @@
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using RestSharp;
+using System.Threading.Tasks;
 
 namespace API_App
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
+
+            // TELEPORT 
             var restClient = new RestClient("https://api.teleport.org/");
             var restRequest = new RestRequest();
             restRequest.Method = Method.GET;
@@ -16,11 +19,11 @@ namespace API_App
             //Don't timeout
             restRequest.Timeout = -1;
 
-            var city = "slug:shanghai";
+            var city = "slug:london";
 
             restRequest.Resource = $"api/urban_areas/{city}/";
 
-            var restResponse = restClient.Execute(restRequest);
+            var restResponse = await restClient.ExecuteAsync(restRequest);
 
             var teleportJsonResponse = JObject.Parse(restResponse.Content);
             
@@ -29,22 +32,18 @@ namespace API_App
 
             var uaName = teleportJsonResponseObject._links.curies[2].name;
             var cityName = teleportJsonResponseObject.name;
-            //var latitude = teleportJsonResponseObject.
-            // JSON access method
-            //var cityName = teleportJsonResponse["name"];
-            //var urbanArea = teleportJsonResponse["_links"]["curies"][2]["name"];
-            Console.WriteLine(uaName);
-            Console.WriteLine(cityName);
-            var geonameId = teleportJsonResponse["geoname_id"];
-            teleportJsonResponseObject = JsonConvert.DeserializeObject<TeleportResponse>(restResponse.Content);
+
             float geoN = teleportJsonResponseObject.bounding_box.latlon.north;
             float geoS = teleportJsonResponseObject.bounding_box.latlon.south;
             float geoE = teleportJsonResponseObject.bounding_box.latlon.east;
             float geoW = teleportJsonResponseObject.bounding_box.latlon.west;
-            //string lat = 
-            //string lon = teleportJsonResponse["location"]["latlon"]["longitude"];
+
+            Console.WriteLine(uaName);
+            Console.WriteLine(cityName);
             Console.WriteLine("\n\n\n\n");
 
+
+            // POSTCODES
             restClient = new RestClient("https://api.postcodes.io/postcodes");
 
             restRequest.Method = Method.POST;
@@ -69,6 +68,7 @@ namespace API_App
             
             var adminDistrict = bulkJsonResponseObject.result[1].result.admin_district;
 
+            Console.WriteLine(adminDistrict);
 
         }
     }

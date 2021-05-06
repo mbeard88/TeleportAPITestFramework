@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_App", "API_App\API_App.csproj", "{4B22311A-0D5E-4D04-B767-870079A2660C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APITeleportTests", "APITests\APITeleportTests.csproj", "{EA27F3C0-CB27-4640-8A6A-4D7E8F579748}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIPostcodesTests", "APIPostcodesTests\APIPostcodesTests.csproj", "{64103C73-008F-4005-AA73-2A43897725F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{4B22311A-0D5E-4D04-B767-870079A2660C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B22311A-0D5E-4D04-B767-870079A2660C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B22311A-0D5E-4D04-B767-870079A2660C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA27F3C0-CB27-4640-8A6A-4D7E8F579748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA27F3C0-CB27-4640-8A6A-4D7E8F579748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA27F3C0-CB27-4640-8A6A-4D7E8F579748}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA27F3C0-CB27-4640-8A6A-4D7E8F579748}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64103C73-008F-4005-AA73-2A43897725F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64103C73-008F-4005-AA73-2A43897725F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64103C73-008F-4005-AA73-2A43897725F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64103C73-008F-4005-AA73-2A43897725F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
