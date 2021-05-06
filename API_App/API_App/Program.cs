@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using RestSharp;
 
 namespace API_App
@@ -15,27 +16,33 @@ namespace API_App
             //Don't timeout
             restRequest.Timeout = -1;
 
-            var cityId = "geonameid:1796236";
+            var city = "slug:shanghai";
 
-            restRequest.Resource = $"api/cities/{cityId}/";
+            restRequest.Resource = $"api/urban_areas/{city}/";
 
             var restResponse = restClient.Execute(restRequest);
 
-            //Console.WriteLine("Response content (string):");
-            //Console.WriteLine(restResponse.Content);
-            Console.WriteLine("\n\n\n\n");
+            var teleportJsonResponse = JObject.Parse(restResponse.Content);
+            
 
-            var jsonResponse = JObject.Parse(restResponse.Content);
-            Console.WriteLine("\nRespone content as JObject");
-            Console.WriteLine(jsonResponse);
+            var teleportJsonResponseObject = JsonConvert.DeserializeObject<TeleportResponse>(restResponse.Content);
 
-            var cityName = jsonResponse["name"];
-            var urbanArea = jsonResponse["_links"]["curies"][2]["name"];
+            var uaName = teleportJsonResponseObject._links.curies[2].name;
+            var cityName = teleportJsonResponseObject.name;
+            //var latitude = teleportJsonResponseObject.
+            // JSON access method
+            //var cityName = teleportJsonResponse["name"];
+            //var urbanArea = teleportJsonResponse["_links"]["curies"][2]["name"];
+            Console.WriteLine(uaName);
             Console.WriteLine(cityName);
-            Console.WriteLine(urbanArea);
-            var geonameId = jsonResponse["geoname_id"];
-            var lat = jsonResponse["location"]["latlon"]["latitude"];
-            var lon = jsonResponse["location"]["latlon"]["longitude"];
+            var geonameId = teleportJsonResponse["geoname_id"];
+            teleportJsonResponseObject = JsonConvert.DeserializeObject<TeleportResponse>(restResponse.Content);
+            float geoN = teleportJsonResponseObject.bounding_box.latlon.north;
+            float geoS = teleportJsonResponseObject.bounding_box.latlon.south;
+            float geoE = teleportJsonResponseObject.bounding_box.latlon.east;
+            float geoW = teleportJsonResponseObject.bounding_box.latlon.west;
+            //string lat = 
+            //string lon = teleportJsonResponse["location"]["latlon"]["longitude"];
             Console.WriteLine("\n\n\n\n");
 
             restClient = new RestClient("https://api.postcodes.io/postcodes");
@@ -50,43 +57,19 @@ namespace API_App
             request.AddHeader("Cookie", "__cfduid=d07ff89d6ceb11516cec847fedae7636c1619439989");
             request.AddParameter("application/json", "{\r\n  \"postcodes\" : [\"PR3 0SG\", \"M45 6GN\", \"EX165BL\"]\r\n}", ParameterType.RequestBody);
             IRestResponse response = restClient.Execute(request);
-            //Console.WriteLine(response.Content);
 
-
-
-
-
-
-            //Console.WriteLine("Response content (string):");
-            //Console.WriteLine(restResponse.Content);
             Console.WriteLine("\n\n\n\n");
-            jsonResponse = JObject.Parse(response.Content);
-            Console.WriteLine("\nRespone content as JObject");
-            Console.WriteLine(jsonResponse);
-
-
-            foreach (var i in jsonResponse["result"]) {
-                var adminDistrict = i["result"]["admin_district"];
-                var pPostCode = i["result"]["postcode"];
-                Console.WriteLine(adminDistrict);
-                Console.WriteLine(pPostCode);
-            }
-            //var geonameId = jsonResponse["geoname_id"];
-            //var lat = jsonResponse["location"]["latlon"]["latitude"];
-            //var lon = jsonResponse["location"]["latlon"]["longitude"];
+            var bulkResponse = JObject.Parse(response.Content);
 
 
 
-            // POST example using postcodes
+            
+            var bulkJsonResponseObject = JsonConvert.DeserializeObject<BulkPostcodesResponse>(response.Content);
 
-            //var client = new RestClient("https://api.postcodes.io/postcodes");
-            //client.Timeout = -1;
-            //var request = new RestRequest(Method.POST);
-            //request.AddHeader("Content-Type", "application/json");
-            //request.AddHeader("Cookie", "__cfduid=d07ff89d6ceb11516cec847fedae7636c1619439989");
-            //request.AddParameter("application/json", "{\r\n  \"postcodes\" : [\"PR3 0SG\", \"M45 6GN\", \"EX165BL\"]\r\n}", ParameterType.RequestBody);
-            //IRestResponse response = client.Execute(request);
-            //Console.WriteLine(response.Content);
+            
+            var adminDistrict = bulkJsonResponseObject.result[1].result.admin_district;
+
+
         }
     }
 }
