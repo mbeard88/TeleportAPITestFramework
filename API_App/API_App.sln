@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeleportAPITestFramework", "TeleportAPITestFramework\TeleportAPITestFramework.csproj", "{C07DAAD2-2B45-4E14-8197-2B8CD707FF6F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_App", "API_App\API_App.csproj", "{4B22311A-0D5E-4D04-B767-870079A2660C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C07DAAD2-2B45-4E14-8197-2B8CD707FF6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C07DAAD2-2B45-4E14-8197-2B8CD707FF6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C07DAAD2-2B45-4E14-8197-2B8CD707FF6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C07DAAD2-2B45-4E14-8197-2B8CD707FF6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B22311A-0D5E-4D04-B767-870079A2660C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B22311A-0D5E-4D04-B767-870079A2660C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B22311A-0D5E-4D04-B767-870079A2660C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B22311A-0D5E-4D04-B767-870079A2660C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {46F40DB6-15DC-4377-830E-9D470465FEE1}
+		SolutionGuid = {14FC84D3-F733-40CC-9EEA-B03037988502}
 	EndGlobalSection
 EndGlobal
