@@ -71,15 +71,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConfigReader.cs" />
-    <Compile Include="SingleCityService.cs" />
-    <Compile Include="Model.cs" />
+    <Compile Include="ProgramVers2.cs" />
+    <Compile Include="TeleportService\DataHandling\SingleCityDTO.cs" />
+    <Compile Include="TeleportService\HTTPManager\CallManager.cs" />
+    <Compile Include="TeleportService\SingleCityService.cs" />
+    <Compile Include="TeleportService\DataHandling\Model.cs" />
     <Compile Include="ProgramVers1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

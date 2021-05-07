@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="API_App.TeleportService.SingleCityDTO">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TeleportService\DataHandling\SingleCityDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SingleCityResponse" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="API_App.TeleportService.CallManager">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>TeleportService\HTTPManager\CallManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API_App.TeleportService.SingleCityService">
+    <Position X="3.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAgAABACCAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TeleportService\SingleCityService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CallManager" />
+      <Property Name="SingleCityDTO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="API_App.TeleportService.SingleCityResponse">
+    <Position X="1.25" Y="4.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAQAAAAAACDAAAAAAAABEEAAAABAAAEAAAIAA=</HashCode>
+      <FileName>TeleportService\DataHandling\Model.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="_embedded" />
+      <Property Name="bounding_box" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="API_App.TeleportService._Embedded">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TeleportService\DataHandling\Model.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="citysearchresults" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="API_App.TeleportService.CitySearchResults">
+    <Position X="9.25" Y="4.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAABAAAEAAAAAAAAAA=</HashCode>
+      <FileName>TeleportService\DataHandling\Model.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API_App.TeleportService.Bounding_Box">
+    <Position X="5.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TeleportService\DataHandling\Model.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="latlon" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="API_App.TeleportService.Latlon">
+    <Position X="8.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAABAAAgAA=</HashCode>
+      <FileName>TeleportService\DataHandling\Model.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
